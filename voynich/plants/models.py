@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class Plant(models.Model):
     page = models.CharField(max_length=10)
-    page_image = models.ImageField(upload_to="site_media")
+    page_image = models.ImageField(upload_to="imgs")
     svg = models.FileField()
     def __str__(self):
         return self.page

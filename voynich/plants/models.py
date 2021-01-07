@@ -4,12 +4,12 @@ from django.db import models
 class Plant(models.Model):
     page = models.CharField(max_length=10)
     page_image = models.ImageField(upload_to="imgs")
-    svg = models.FileField()
+    svg = models.FileField(upload_to="imgs")
     def __str__(self):
         return self.page
 
 class Label(models.Model):
-    plant_Id = models.ForeignKey(Plant, on_delete=models.CASCADE)
+    PlantID = models.ForeignKey(Plant, on_delete=models.CASCADE)
     Label = models.CharField(max_length=255)
 
 class Person(models.Model):
@@ -23,13 +23,17 @@ class Publication(models.Model):
     name = models.CharField(max_length=255)
     year = models.DateField(blank=True)
 
+class PublicationToAuthor(models.Model):
+    PublicationID = models.ForeignKey(Publication, on_delete=models.CASCADE)
+    AuthorID = models.ForeignKey(Person, on_delete=models.CASCADE)
+
 class Classification(models.Model):
-    plant_Id = models.ForeignKey(Plant, on_delete=models.CASCADE)
-    person_Id = models.ForeignKey(Person, on_delete=models.CASCADE)
+    PlantID = models.ForeignKey(Plant, on_delete=models.CASCADE)
+    PublicationID = models.ForeignKey(Publication, on_delete=models.CASCADE)
     year = models.DateField(blank=True)
     descr = models.CharField(max_length=255,blank=True)
     source = models.CharField(max_length=255,blank=True)
-    real_image = models.ImageField(blank=True)
-    medievial_image = models.ImageField(blank=True)
+    real_image = models.ImageField(blank=True, upload_to="imgs")
+    medievial_image = models.ImageField(blank=True, upload_to="imgs")
 
 

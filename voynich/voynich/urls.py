@@ -25,3 +25,4 @@ urlpatterns = [
 
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.IMG_URL, document_root=settings.IMG_ROOT)
+urlpatterns += static(settings.FILE_URL, document_root=settings.FILE_ROOT)

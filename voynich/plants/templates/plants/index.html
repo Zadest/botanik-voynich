@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Zeug</title>
+</head>
+
+<body>
+    {% for plant in plants %}
+    <div> {{plant}} <br> <!--<img src="{{ plant.page_image.url }}"/> -->
+        <img src="{{plant.svg.url}}" width="150px" height="500px"/><img src="{{plant.page_image.url}}">
+    </div>
+    {% endfor %}
+</body>
+
+</html>

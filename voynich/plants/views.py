@@ -1,10 +1,15 @@
 from django.shortcuts import render
-from django.template import loader
-from django.http import HttpResponse
-from django.conf import settings
-from .models import Plant, Label, Person, Classification
+from .models import Plant, Label, Person, Classification, Publication, PublicationToAuthor
 
 # Create your views here.
 def plantOverview(request):
+    
     plants = Plant.objects.all()
-    return HttpResponse(f"<html><img src=\"{plants[0].page_image.url}\"</html>")
+    pubs = Publication.objects.all()
+    authors = Person.objects.all()
+    con = PublicationToAuthor.objects.all()
+    labels = Label.objects.all()
+    classifications = Classification.objects.all()
+
+    context = {"plants" : plants, "pubs" : pubs, "authors" : authors, "pubs" : pubs, "con" : con, "classifications" : classifications, "labels" : labels}
+    return render(request,"plants/index.html",context)

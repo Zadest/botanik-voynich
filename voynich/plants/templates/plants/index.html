@@ -11,6 +11,14 @@
         <img src="{{plant.svg.url}}" width="150px" height="500px"/><img src="{{plant.page_image.url}}">
     </div>
     {% endfor %}
+    {% for author in authors %}
+    <div>
+        {{author}}
+    </div>
+    {% endfor %}
+    {% for publication in pubs %}
+        {{publication}}
+    {% endfor %}
 </body>
 
 </html>

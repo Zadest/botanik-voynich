@@ -22,6 +22,8 @@ class Person(models.Model):
 class Publication(models.Model):
     name = models.CharField(max_length=255)
     year = models.DateField(blank=True)
+    def __str__(self):
+        return self.name
 
 class PublicationToAuthor(models.Model):
     PublicationID = models.ForeignKey(Publication, on_delete=models.CASCADE)

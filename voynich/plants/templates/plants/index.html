@@ -3,22 +3,71 @@
 
 <head>
     <title>Zeug</title>
+    <script src='https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js'></script>
+    <style>
+        body{
+            background-color: #3d9985;
+        }
+        svg{
+            background-color: #3d9985;  
+        }
+        svg g{
+            background-color: #3d9985;
+        }
+        g image.vector{
+            filter:url(#blur-effect-1);
+        }
+        g image.jpg{
+            opacity: 0.0;
+        }
+        g image.jpg:hover{
+            opacity: 1.0;
+        }
+        g image.vector:hover{
+            filter:url(#blur-effect-0);
+        }
+    </style>
 </head>
 
 <body>
-    {% for plant in plants %}
-    <div> {{plant}} <br> <!--<img src="{{ plant.page_image.url }}"/> -->
-        <img src="{{plant.svg.url}}" width="150px" height="500px"/><img src="{{plant.page_image.url}}">
-    </div>
-    {% endfor %}
-    {% for author in authors %}
-    <div>
-        {{author}}
-    </div>
-    {% endfor %}
-    {% for publication in pubs %}
-        {{publication}}
-    {% endfor %}
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="1000px">
+        <filter id="blur-effect-1">
+            <feGaussianBlur stdDeviation="3"/>
+        </filter>
+        <filter id="blur-effect-0">
+            <feGaussianBlur stdDeviation="0"/>
+        </filter>
+        <defs>
+            <clipPath id="myCircle">
+                <circle cx="0" cy="0" r="150px"/>
+            </clipPath>
+        </defs>
+        <g id="scene">
+            
+            {% for plant in plants %}
+            <g>    
+            <image class="vector" href="{{plant.svg.url}}" aria-label="{{plant}}" onmousemove="document.getElementsByClassName('jpg')[0].style['opacity'] = 1.0;" onmouseout="document.getElementsByClassName('jpg')[0].style['opacity'] = 0.0;" onmo onclick="location.href='./{{plant.pk}}'"/>
+            <image class="jpg" href="{{plant.page_image.url}}" x="50%" y="5%" height="300px" aria-label="{{plant}}" onclick="location.href='./{{plant.pk}}'"/>
+            </g>
+            {% endfor %}
+            <g>
+            {% for author in authors %}
+            
+                <text dx="10%" dy="10%">{{author}}</text>
+            
+            {% endfor %}
+            {% for publication in pubs %}
+                <text dx="5px" dy="20px">{{publication}}</text>
+            {% endfor %}
+            </g>     
+        </g>
+    </svg>
 </body>
+
+<script>
+var element = document.querySelector('#scene')
+var instance = panzoom(element)
+instance
+</script>
 
 </html>

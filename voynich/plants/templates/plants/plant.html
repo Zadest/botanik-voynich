@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Zeug</title>
+    <script src='https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js'></script>
+    <style>
+        body{
+            background-color: #3d9985;
+        }
+        svg{
+            background-color: #3d9985;  
+        }
+        svg g{
+            background-color: #3d9985;
+        }
+    </style>
+</head>
+
+<body>
+    <svg>
+        <g id="scene">
+            <text>{{plant}}</text>
+        </g>
+    </svg>
+    {{plant}}<br>
+    {% for clas in class %}
+        {{clas.PlantID}} , {{clas.PublicationID}} , {{clas.Descr}}
+    {% endfor %}
+</body>
+
+<script>
+var element = document.querySelector('#scene')
+var instance = panzoom(element)
+
+</script>
+
+</html>

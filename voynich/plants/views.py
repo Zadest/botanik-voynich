@@ -13,3 +13,9 @@ def plantOverview(request):
 
     context = {"plants" : plants, "pubs" : pubs, "authors" : authors, "pubs" : pubs, "con" : con, "classifications" : classifications, "labels" : labels}
     return render(request,"plants/index.html",context)
+
+def specificPlant(request,id):
+    plant = Plant.objects.get(pk=id)
+    classifications = Classification.objects.filter(PlantID=plant.pk)
+    context = {"plant" : plant, "class" : classifications}
+    return render(request,"plants/plant.html",context)

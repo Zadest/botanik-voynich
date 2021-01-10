@@ -1,17 +1,15 @@
 from django.shortcuts import render
 from .models import Plant, Label, Person, Classification, Publication, PublicationToAuthor
-
+import random
 # Create your views here.
 def plantOverview(request):
     
     plants = Plant.objects.all()
-    pubs = Publication.objects.all()
-    authors = Person.objects.all()
-    con = PublicationToAuthor.objects.all()
-    labels = Label.objects.all()
-    classifications = Classification.objects.all()
+    positions = []
+    for i in range(len(plants)):
+        positions.append(((str(i*10)+"%",str(random.randint(0,i)*10)+"%")))
 
-    context = {"plants" : plants, "pubs" : pubs, "authors" : authors, "pubs" : pubs, "con" : con, "classifications" : classifications, "labels" : labels}
+    context = {"plants" : plants, "pos" : positions}
     return render(request,"plants/index.html",context)
 
 def specificPlant(request,id):

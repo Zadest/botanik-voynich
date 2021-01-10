@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Zeug</title>
+    <title>Pflanzenübersicht</title>
     <script src='https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js'></script>
     <style>
         body{
@@ -30,6 +30,7 @@
 </head>
 
 <body>
+    {{pos.0.0}}
     <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="1000px">
         <filter id="blur-effect-1">
             <feGaussianBlur stdDeviation="3"/>
@@ -37,25 +38,11 @@
         <filter id="blur-effect-0">
             <feGaussianBlur stdDeviation="0"/>
         </filter>
-        <defs>
-            <clipPath id="myCircle">
-                <circle cx="0" cy="0" r="150px"/>
-            </clipPath>
-        </defs>
-        <g id="scene">
-            
-            {% for plant in plants %}
-            <g class="plant">    
-                <image class="vector" href="{{plant.svg.url}}" aria-label="{{plant}}" onmousemove="document.getElementsByClassName('jpg')[0].style['opacity'] = 1.0;" onmouseout="document.getElementsByClassName('jpg')[0].style['opacity'] = 0.0;" onmo onclick="location.href='./{{plant.pk}}'"/>
-                <image class="jpg" href="{{plant.page_image.url}}" x="30%" y="5%" height="300px" aria-label="{{plant}}" onclick="location.href='./{{plant.pk}}'"/>
-                <g class="plant_text" x="10%" y="10%">
-                    {% for class in classifications %}
-                    {% if class.PlantID == plant %}
-                        <text x="30%" y="30%">{{class.descr}}</text>
-                    {% endif %}
-                    {% endfor %}
 
-                </g>
+        <g id="scene">
+            {% for plant in plants %}
+            <g class="plant" onmousemove="alert('{{pos}}');">    
+                <image class="vector" x="{{pos.forloop.counter0.0}}" href="{{plant.svg.url}}" onclick="location.href='./{{plant.pk}}'"/>
             </g>
             {% endfor %}
         </g>
@@ -65,7 +52,6 @@
 <script>
 var element = document.querySelector('#scene')
 var instance = panzoom(element)
-instance
 </script>
 
 </html>

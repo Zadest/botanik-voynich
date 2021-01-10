@@ -45,21 +45,19 @@
         <g id="scene">
             
             {% for plant in plants %}
-            <g>    
-            <image class="vector" href="{{plant.svg.url}}" aria-label="{{plant}}" onmousemove="document.getElementsByClassName('jpg')[0].style['opacity'] = 1.0;" onmouseout="document.getElementsByClassName('jpg')[0].style['opacity'] = 0.0;" onmo onclick="location.href='./{{plant.pk}}'"/>
-            <image class="jpg" href="{{plant.page_image.url}}" x="50%" y="5%" height="300px" aria-label="{{plant}}" onclick="location.href='./{{plant.pk}}'"/>
+            <g class="plant">    
+                <image class="vector" href="{{plant.svg.url}}" aria-label="{{plant}}" onmousemove="document.getElementsByClassName('jpg')[0].style['opacity'] = 1.0;" onmouseout="document.getElementsByClassName('jpg')[0].style['opacity'] = 0.0;" onmo onclick="location.href='./{{plant.pk}}'"/>
+                <image class="jpg" href="{{plant.page_image.url}}" x="30%" y="5%" height="300px" aria-label="{{plant}}" onclick="location.href='./{{plant.pk}}'"/>
+                <g class="plant_text" x="10%" y="10%">
+                    {% for class in classifications %}
+                    {% if class.PlantID == plant %}
+                        <text x="30%" y="30%">{{class.descr}}</text>
+                    {% endif %}
+                    {% endfor %}
+
+                </g>
             </g>
             {% endfor %}
-            <g>
-            {% for author in authors %}
-            
-                <text dx="10%" dy="10%">{{author}}</text>
-            
-            {% endfor %}
-            {% for publication in pubs %}
-                <text dx="5px" dy="20px">{{publication}}</text>
-            {% endfor %}
-            </g>     
         </g>
     </svg>
 </body>

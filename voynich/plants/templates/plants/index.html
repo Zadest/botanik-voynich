@@ -30,7 +30,6 @@
 </head>
 
 <body>
-    {{pos.0.0}}
     <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="1000px">
         <filter id="blur-effect-1">
             <feGaussianBlur stdDeviation="3"/>
@@ -41,8 +40,8 @@
 
         <g id="scene">
             {% for plant in plants %}
-            <g class="plant" onmousemove="alert('{{pos}}');">    
-                <image class="vector" x="{{pos.forloop.counter0.0}}" href="{{plant.svg.url}}" onclick="location.href='./{{plant.pk}}'"/>
+            <g class="plant">
+                <image class="vector" href="{{plant.svg.url}}" onclick="location.href='./{{plant.pk}}'"/>
             </g>
             {% endfor %}
         </g>
@@ -52,6 +51,14 @@
 <script>
 var element = document.querySelector('#scene')
 var instance = panzoom(element)
+</script>
+
+<script>
+    for(var i=1; i<document.getElementsByClassName("vector").length;i++){
+        document.getElementsByClassName("vector")[i].setAttribute("x",(i*40).toString()+"%");
+        document.getElementsByClassName("vector")[i].setAttribute("y",(i*40).toString()+"%");
+    }
+
 </script>
 
 </html>

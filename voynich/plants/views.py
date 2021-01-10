@@ -7,7 +7,7 @@ def plantOverview(request):
     plants = Plant.objects.all()
     positions = []
     for i in range(len(plants)):
-        positions.append(((str(i*10)+"%",str(random.randint(0,i)*10)+"%")))
+        positions.append("x=\""+str(i*10)+"% y=\""+str(random.randint(0,i)*10)+"%")
 
     context = {"plants" : plants, "pos" : positions}
     return render(request,"plants/index.html",context)

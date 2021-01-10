@@ -15,5 +15,9 @@ def plantOverview(request):
 def specificPlant(request,id):
     plant = Plant.objects.get(pk=id)
     classifications = Classification.objects.filter(PlantID=plant.pk)
-    context = {"plant" : plant, "class" : classifications}
+    pubs = []
+    for classi in classifications:
+        pubs += Publication.objects.filter(name=classi.PublicationID)
+    context = {"plant" : plant, "class" : classifications, "pubs" : pubs}
     return render(request,"plants/plant.html",context)
+

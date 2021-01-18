@@ -6,7 +6,7 @@
  - 2. >  python -m venv voynich python=3.8\
  source voynich/bin/activate\
  pip install django\
- pip install Pillow\
+ pip install Pillow
 
 ## 1. Mockup
 ![Image of Mockup](https://github.com/Zadest/botanik-voynich/blob/dev/mockup.gif)

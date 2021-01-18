@@ -21,5 +21,5 @@ Durch wenige Klicks und ohne das Laden einer neuen Seite sollen fokusierte Eleme
 - [x] Django Environment erstellen
 - [x] Modellstruktur erstellen
 - [x] Grundidee der Visuallisierung durch views.py und Templates darstellen 
-- [ ] SQL-DB integrieren
+- [ ] Maria-DB integrieren
 - [ ] Templates mit JS anpassen

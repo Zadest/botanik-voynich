@@ -16,3 +16,10 @@ Das Mockup zeigt sowohl eine grobe Vorlage des Layouts als auch einen Ausblick a
 Durch wenige Klicks und ohne das Laden einer neuen Seite sollen fokusierte Elemente vergrößert, andere Elemente an den Rand gedrängt und zusätzliche Informationen dargestellt werden. Durch eine zusätzliche Interaktion mit einzelnen Informationen, wie beispielsweise den beteiligten Personen, sollen direkte Verbindungen und Filter auf die Ansicht angewandt werden.
 
 ## 2. Modellstruktur in Django
+
+## 3. Todo
+- [x] Django Environment erstellen
+- [x] Modellstruktur erstellen
+- [x] Grundidee der Visuallisierung durch views.py und Templates darstellen 
+- [ ] SQL-DB integrieren
+- [ ] Templates mit JS anpassen

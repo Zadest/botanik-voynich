@@ -1,5 +1,12 @@
 # botanik-voynich
 Übersicht für botanische Zeichnungen im Voynich Manuskript
 
-## Mockup
+## 0. Environmenterstellung
+ - 1. python3.8, venv und pip müssen installiert werden.
+ - 2. 
+
+## 1. Mockup
 ![Image of Mockup](https://github.com/Zadest/botanik-voynich/blob/dev/mockup.gif)
+
+
+## 2. Modellstruktur in Django

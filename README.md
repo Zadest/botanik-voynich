@@ -25,3 +25,5 @@ Durch wenige Klicks und ohne das Laden einer neuen Seite sollen fokusierte Eleme
 - [ ] Colorscheme
 - [ ] Templates mit JS anpassen
 - - [ ] Dynamische, Responsive Anwendung
+
+[ ] Dockercontainer ?

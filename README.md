@@ -1,5 +1,5 @@
 # botanik-voynich
-Übersicht für botanische Zeichnungen im Voynich Manuskript
+Übersicht für botanische Zeichnungen im Voynich Manuskript. Dazu werden Django und Bootstrap verwendet.
 
 ## 0. Environmenterstellung
  - 1. python3.8, venv und pip müssen installiert werden.

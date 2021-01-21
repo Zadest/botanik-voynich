@@ -22,4 +22,6 @@ Durch wenige Klicks und ohne das Laden einer neuen Seite sollen fokusierte Eleme
 - [x] Modellstruktur erstellen
 - [x] Grundidee der Visuallisierung durch views.py und Templates darstellen 
 - [ ] Maria-DB integrieren
+- [ ] Colorscheme
 - [ ] Templates mit JS anpassen
+- - [ ] Dynamische, Responsive Anwendung

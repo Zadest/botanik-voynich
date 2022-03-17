@@ -2,11 +2,16 @@
 Übersicht für botanische Zeichnungen im Voynich Manuskript. Dazu werden Django und Bootstrap verwendet.
 
 ## 0. Environmenterstellung
- - 1. python3.8, venv und pip müssen installiert werden.
- - 2. >  python -m venv voynich python=3.8\
- source voynich/bin/activate\
- pip install django\
- pip install Pillow
+```bash
+# Erstelle eine Virtuelle Umgebung
+python -m venv .env
+# Aktiviere die Virtuelle Umgebung
+source .env/bin/activate
+# Update pip
+python -m pip install pip --upgrade
+# Installiere die Abhängigkeiten
+python -m pip install -r requirements.txt
+```
 
 ## 1. Mockup
 ![Image of Mockup](https://github.com/Zadest/botanik-voynich/blob/dev/mockup.gif)

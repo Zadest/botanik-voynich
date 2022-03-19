@@ -3,14 +3,14 @@
 
 ## 0. Environmenterstellung
 ```bash
-# Erstelle eine Virtuelle Umgebung
-python -m venv .env
-# Aktiviere die Virtuelle Umgebung
-source .env/bin/activate
-# Update pip
-python -m pip install pip --upgrade
-# Installiere die Abhängigkeiten
-python -m pip install -r requirements.txt
+# docker
+docker-compose -f docker-compose.yml up --build
+```
+
+Im Docker Container muss ein Superuser mit folgendem Befehl angelegt werden:
+
+```bash
+docker-compose run django python /code/voynich/manage.py createsuperuser
 ```
 
 ## 1. Mockup
@@ -26,9 +26,4 @@ Durch wenige Klicks und ohne das Laden einer neuen Seite sollen fokusierte Eleme
 - [x] Django Environment erstellen
 - [x] Modellstruktur erstellen
 - [x] Grundidee der Visuallisierung durch views.py und Templates darstellen 
-- [ ] Maria-DB integrieren
-- [ ] Colorscheme
-- [ ] Templates mit JS anpassen
-- - [ ] Dynamische, Responsive Anwendung
-
-[ ] Dockercontainer ?
+- [x] Dockercontainer

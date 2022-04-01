@@ -2,6 +2,7 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+from voynich.settings import BASE_DIR
 
 
 def main():
@@ -19,4 +20,5 @@ def main():
 
 
 if __name__ == '__main__':
+    print(os.path.join(BASE_DIR,'imgs'))
     main()

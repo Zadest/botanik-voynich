@@ -15,7 +15,7 @@
             background-color: #3d9985;
         }
         g image.vector{
-            filter:url(#blur-effect-1);
+            filter:url(#shadow);
         }
         g image.jpg{
             opacity: 0.0;
@@ -24,7 +24,7 @@
             opacity: 1.0;
         }
         g image.vector:hover{
-            filter:url(#blur-effect-0);
+            filter:url(#shadow2);
         }
     </style>
 </head>
@@ -37,6 +37,17 @@
         <filter id="blur-effect-0">
             <feGaussianBlur stdDeviation="0"/>
         </filter>
+        <filter id="shadow">
+            <feDropShadow dx="0.2" dy="0.4" stdDeviation="0.2"/>
+          </filter>
+          <filter id="shadow2">
+            <feDropShadow dx="0" dy="0" stdDeviation="0.5"
+                flood-color="cyan"/>
+          </filter>
+          <filter id="shadow3">
+            <feDropShadow dx="-0.8" dy="-0.8" stdDeviation="0"
+                flood-color="pink" flood-opacity="0.5"/>
+          </filter>
 
         <g id="scene">
             {% for plant in plants %}
